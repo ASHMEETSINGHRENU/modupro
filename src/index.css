@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Nornorm Palette with Brand Accent */
+  --color-canvas-white: #ffffff;
+  --color-bone: #F8F5EF;
+  --color-ash: #ececec;
+  --color-stone: #6a6a6a;
+  --color-graphite: #333333;
+  --color-ink: #1f1d1e;
+  --color-obsidian: #000000;
+  --color-brand-primary: #8C460C;
+  --color-brand-secondary: #D17E3A;
+
+  /* Universal tracking signature: -0.03em */
+  --tracking-lunar: -0.03em;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-canvas-white);
+  color: var(--color-obsidian);
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.03em; /* Universal -0.03em tracking */
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* All headings have strict universal -0.03em tracking and editorial restraint */
+h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea {
+  letter-spacing: -0.03em;
+}
+
+/* Nornorm Pill Buttons */
+.btn-primary-pill {
+  border-radius: 9999px;
+  background-color: var(--color-brand-primary);
+  color: #ffffff;
+  font-weight: 500;
+  padding: 12px 28px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary-pill:hover {
+  background-color: var(--color-brand-secondary);
+  transform: translateY(-1px);
+}
+
+.btn-primary-pill:active {
+  transform: scale(0.98);
+}
+
+.btn-ghost-pill {
+  border-radius: 9999px;
+  background-color: transparent;
+  color: var(--color-obsidian);
+  border: 1px solid var(--color-obsidian);
+  font-weight: 500;
+  padding: 12px 28px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-ghost-pill:hover {
+  background-color: var(--color-obsidian);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-ghost-pill:active {
+  transform: scale(0.98);
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas-white);
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-primary);
+}
+
+/* Dialog Backdrop */
+dialog::backdrop {
+  background-color: rgba(31, 29, 30, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* ==========================================================================
+   SCROLL PROGRESS BAR
+   ========================================================================== */
+.scroll-progress-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8C460C 0%, #D17E3A 100%);
+  z-index: 9999;
+  transform-origin: 0% 50%;
+  box-shadow: 0 0 10px rgba(209, 126, 58, 0.6);
+  pointer-events: none;
+  transition: width 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   REVEAL ON SCROLL ANIMATIONS (Universal Hardware-Accelerated)
+   ========================================================================== */
+.reveal-init {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* Variations */
+.reveal-scale-init {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0) scale(0.97);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale-visible {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+/* Stagger Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Interactive Card Hover Elevate (Flat Scandinavian Showroom Discipline) */
+.card-hover-effect {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+.card-hover-effect:hover {
+  transform: translateY(-4px);
+  border-color: rgba(140, 70, 12, 0.4);
+}
+
+/* Keyframe animations for mount elements */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Native CSS Scroll-Driven Animations for supported browsers */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes native-reveal {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 36px, 0) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    .native-scroll-effect {
+      animation: native-reveal auto cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+  }
+}
+
+/* Accessible reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+  .reveal-init, .reveal-scale-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
