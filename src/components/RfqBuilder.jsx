@@ -80,7 +80,8 @@ export default function RfqBuilder({ prefilledRequirement }) {
     setIsSubmitting(true);
 
     try {
-      await fetch('/api/inquiries', {
+      const apiBase = import.meta.env.VITE_API_BASE_URL || '';
+      await fetch(`${apiBase}/api/inquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
